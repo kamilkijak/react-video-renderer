@@ -51,6 +51,7 @@ export interface VideoProps {
   preload: string;
   poster?: string;
   crossOrigin?: string;
+  subtitlesSrc?: string;
   onCanPlay?: (event: SyntheticEvent<SourceElement>) => void;
   onError?: (event: SyntheticEvent<SourceElement>) => void;
   onTimeChange?: (time: number, duration: number) => void;
@@ -308,7 +309,7 @@ export class Video extends Component<VideoProps, VideoComponentState> {
 
   render() {
     const { videoState, actions } = this;
-    const { sourceType, poster, src, children, autoPlay, controls, preload, crossOrigin } = this.props;
+    const { sourceType, poster, src, children, autoPlay, controls, preload, crossOrigin, subtitlesSrc } = this.props;
 
     const props: Partial<MediaHTMLAttributes<HTMLVideoElement & HTMLAudioElement>> = {
       src,
@@ -333,7 +334,9 @@ export class Video extends Component<VideoProps, VideoComponentState> {
           ref={this.videoRef}
           poster={poster}
           {...props}
-        />,
+        >
+          subtitlesSrc ? <track src={subtitlesSrc} /> : null
+        </video>,
         videoState,
         actions,
         this.videoRef
