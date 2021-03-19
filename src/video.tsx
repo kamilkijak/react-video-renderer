@@ -333,6 +333,7 @@ export class Video extends Component<VideoProps, VideoComponentState> {
         <video
           ref={this.videoRef}
           poster={poster}
+          crossOrigin="anonymous"
           {...props}
         >
           { subtitlesSrc ? <track src={subtitlesSrc} kind="subtitles" /> : null }
