@@ -235,7 +235,7 @@ var Video = /** @class */ (function (_super) {
             crossOrigin: crossOrigin,
         };
         if (sourceType === 'video') {
-            return children(React.createElement("video", tslib_1.__assign({ ref: this.videoRef, poster: poster, crossOrigin: "anonymous" }, props), subtitlesSrc ? React.createElement("track", { src: subtitlesSrc, kind: "subtitles" }) : null), videoState, actions, this.videoRef);
+            return children(React.createElement("video", tslib_1.__assign({ ref: this.videoRef, poster: poster }, props, { crossOrigin: "anonymous" }), subtitlesSrc ? React.createElement("track", { src: subtitlesSrc, kind: "subtitles" }) : null), videoState, actions, this.videoRef);
         }
         else {
             return children(React.createElement("audio", tslib_1.__assign({ ref: this.audioRef }, props)), videoState, actions, this.audioRef);
