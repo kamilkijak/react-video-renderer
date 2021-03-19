@@ -335,7 +335,7 @@ export class Video extends Component<VideoProps, VideoComponentState> {
           poster={poster}
           {...props}
         >
-          { subtitlesSrc ? <track src={subtitlesSrc} /> : null }
+          { subtitlesSrc ? <track src={subtitlesSrc} kind="subtitles" /> : null }
         </video>,
         videoState,
         actions,
